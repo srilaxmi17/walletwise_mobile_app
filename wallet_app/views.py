@@ -92,8 +92,6 @@ class Exchange_pricelist(generics.ListAPIView):
 
 User = get_user_model()
 
-# Initialize Twilio client with actual credentials
-twilio_client = Client('AC3662be810b7aea8ab5bc0a495cc6d38b', '85e1be4c41faa0b44ece5a676dcb14dd')
 
 otp_storage = {}
 
