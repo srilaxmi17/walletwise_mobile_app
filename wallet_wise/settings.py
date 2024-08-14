@@ -170,9 +170,7 @@ SIMPLE_JWT = {
 }
 
 # Twilio Settings (Optional)
-TWILIO_ACCOUNT_SID = 'AC3662be810b7aea8ab5bc0a495cc6d38b'
-TWILIO_AUTH_TOKEN = '85e1be4c41faa0b44ece5a676dcb14dd'
-TWILIO_PHONE_NUMBER = '+19383003259'
+
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'smtp.your-email-provider.com'
@@ -181,8 +179,7 @@ TWILIO_PHONE_NUMBER = '+19383003259'
 # EMAIL_HOST_USER = 'your-email@example.com'
 # EMAIL_HOST_PASSWORD = 'your-email-password'
 
-RAZORPAY_API_KEY = 'rzp_test_QVTy2bLjsCxsQ6'
-RAZORPAY_API_SECRET = 'zJXOm8gbVCPfXi6nlhc8t4rJ'
+
 
 
 AUTH_USER_MODEL = 'wallet_app.User'
