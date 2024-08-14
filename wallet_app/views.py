@@ -16,7 +16,6 @@ from rest_framework import permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from twilio.rest import Client
 import random
 from django.contrib.auth import get_user_model
 from wallet_app.models import OTP
@@ -100,13 +99,13 @@ def send_otp(mobile):
     otp_storage[mobile] = otp
     OTP.objects.create(phone=mobile, otp=otp)
     try:
-        message = twilio_client.messages.create(
+        message =messages.create(
             body=f'Your OTP is {otp}',
             from_='+19383003259',
             to=mobile
         )
     except Exception as e:
-        print(f"Twilio Error: {e}")
+        print(f"Error: {e}")
         raise e
     return message.sid
 
