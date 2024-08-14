@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="content-body">
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center"> <u>Add Platform Price</u> </h2><br>
+                        {% if error %}
+                        <p class="text-center" style="color:red;">{{ error }}</p>
+                        {% endif %} <br>
+                        <div class="basic-form">
+                            <form method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+                                    <label for="UST_Price">UST Price:</label>
+                                    <input type="number" step="0.01" name="UST_Price" id="UST_Price"
+                                        class="form-control input-rounded" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Price1">Price 1:</label>
+                                    <input type="number" step="0.01" name="Price1" id="Price1"
+                                        class="form-control input-rounded" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Price2">Price 2:</label>
+                                    <input type="number" step="0.01" name="Price2" id="Price2"
+                                        class="form-control input-rounded" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Price3">Price 3:</label>
+                                    <input type="number" step="0.01" name="Price3" id="Price3"
+                                        class="form-control input-rounded" required>
+                                </div>
+
+                                <button type="submit" class="btn w-50 label gradient-7 btn-rounded">Add Price</button>
+
+                            </form><br>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

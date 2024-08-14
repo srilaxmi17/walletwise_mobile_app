@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block body %}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center"> <u>Edit Deposit Address</u> </h2><br>
+
+
+                        {% if error %}
+                        <p class="text-center" style="color:red;">{{ error }}</p>
+                        {% endif %} <br>
+
+
+                        <div class="basic-form">
+                            <form method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="form-group">
+
+                                    <label for="network">Network:</label>
+
+                                    <select name="network" id="network" required>
+                                        {% for network in networks %}
+                                            <option value="{{ network.id }}" {% if network.id == address.network.id %} selected {% endif %} >{{ network.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="deposit_address">Deposit Address:</label>
+                                    
+                                    <input type="text" class="form-control input-rounded" name="deposit_address" id="deposit_address" value="{{ address.deposit_address }}"required>
+
+                                </div>
+
+                                <button type="submit" class="btn w-50 label gradient-3 btn-rounded"> Save Changes</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

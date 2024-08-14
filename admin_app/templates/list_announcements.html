@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center"><u> Announcements Table</u></h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered zero-configuration">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Time</th>
+                                        <th>Value Price</th>
+                                        <th>Update</th>
+                                        <!-- <th>Delete</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for announcement in announcements %}
+                                    <tr>
+                                        <td>{{ announcement.id }}</td>
+                                        <td>{{ announcement.Time }}</td>
+                                        <td>{{ announcement.value_price }}</td>
+                                        <td>
+
+                                            <a href="{% url 'admin_app:edit_announcement' announcement.id %}"
+                                                data-toggle="tooltip" data-placement="top" title="Edit"> <span
+                                                    class="label gradient-3 btn-rounded">Edit</span> </a>
+                                        </td>
+                                        <!-- <td>
+
+                                            <a href="{% url 'admin_app:delete_announcement' announcement.id %}"
+                                                data-toggle="tooltip" data-placement="top" title="Delete"> <span
+                                                    class="label gradient-2 btn-rounded">Delete</span> </a>
+                                        </td>  -->
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="6">No Announcements Available.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block body %}
+<!-- row -->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="content-wrapper">
+            <div class="page-header">
+                
+
+            </div>
+            <div class="row" style="margin-left: 10%;">
+                <div class="col-10 grid-margin stretch-card">
+                    <div class="card" style="background-color: rgb(13, 95, 95);">
+                        <div class="card-body">
+                            <h2 class="card-title text-center text-white "><strong><u>DELETE ANNOUNCEMENT</u></strong></h2>
+
+                            <h4 class="text-center text-white ">Are you sure you want to delete the following Announcement?
+                            </h4>
+                            <p style="font-size: larger;" class="text-center text-white ">
+                                <ul class="text-center text-white">
+                                    <li>Time: {{ announcement.Time }}</li>
+                                    <li>Value Price: {{ announcement.value_price }}</li>
+                                </ul>
+                            </p><br>
+
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <button style="margin-left: 35%;" type="submit"
+                                    class="btn mr-2 label gradient-2 btn-rounded ">Yes, Delete</button>
+                                <a href="{% url 'admin_app:list_announcements' %}"> <button type="button"
+                                        class="btn label gradient-4 btn-rounded  mr-2 ">Cancel</button> </a>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
